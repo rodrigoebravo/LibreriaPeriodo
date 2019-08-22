@@ -96,10 +96,6 @@ namespace PeriodoProj
         {
             return !(periodoA == periodoB);
         }
-        public void sarasa()
-        {
-            Console.WriteLine("aaaaaaaaaaaaaaaa");
-        }
         public override string ToString()
         {
             if (this.IsValid)
