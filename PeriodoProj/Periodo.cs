@@ -152,10 +152,5 @@ namespace PeriodoProj
 
             return this.Value.ToString();
         }
-
-        public string MetodoPrueba()
-        {
-            return string.Empty;
-        }
     }
 }
