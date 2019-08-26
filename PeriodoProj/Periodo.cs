@@ -38,7 +38,7 @@ namespace PeriodoProj
                 {
                     year = int.Parse(periodo.ToString().Substring(2, 4));
                     month = int.Parse(periodo.ToString().Substring(0, 2));
-                    
+
                 }
                 this.Value = int.Parse($"{year}{month.ToString().PadLeft(2, '0')}");
                 this.Date = new DateTime(year, month, 1);
@@ -59,7 +59,7 @@ namespace PeriodoProj
         }
         private static bool Validar(string periodo)
         {
-            for (int i = 1900; i < 2999; i++)
+            for (int i = 1900; i < 3001; i++)
             {
                 for (int j = 1; j < 13; j++)
                 {
@@ -120,6 +120,21 @@ namespace PeriodoProj
                 throw new Exception("Periodo inválido");
 
             return periodo + (meses * -1);
+        }
+
+        public static int operator -(Periodo periodoA, Periodo periodoB)
+        {
+            var anioA = periodoA.Year;
+            var mesA = periodoA.Month;
+            var anioB = periodoB.Year;
+            var mesB = periodoB.Month;
+
+            var resultAnio = anioA - anioB;
+            var resultMes = mesA - mesB;
+
+            resultMes += resultAnio * 12;
+
+            return resultMes;
         }
         public static bool operator ==(Periodo periodoA, Periodo periodoB)
         {
